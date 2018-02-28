@@ -10,7 +10,7 @@
 		break;
 		
 		default:
-			header('location:page?error-page');
+			header('location:page.php?error-page');
 		break;
 
 	}

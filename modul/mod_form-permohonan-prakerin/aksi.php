@@ -144,20 +144,20 @@
 						$qry = mysqli_query($koneksi,$sql);
 
 			 		$_SESSION['ALERT'] = 'SUCCESS';
-					header('location:../../page?p=index');
+					header('location:../../page.php?p=index');
 
 			 	}
 
 			 	else {
 					$_SESSION['ALERT']     = 'ERROR';
 					$_SESSION['tgl_input'] = $r['tanggal_input'];
-					header('location:../../page?p=index');
+					header('location:../../page.php?p=index');
 
 			 	}
 			break;
 			
 			default:
-				header('location:../../page?p=masuk&notif='.encode('akses-tidak-diizinkan'));
+				header('location:../../page.php?p=masuk&notif='.encode('akses-tidak-diizinkan'));
 				
 			break;
 		}

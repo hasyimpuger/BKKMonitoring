@@ -24,7 +24,7 @@
 
 					//pastikan username dan password adalah berupa huruf atau angka.
 					if (!ctype_alnum($injeksi_username) OR !ctype_alnum($injeksi_password)){
-						echo "<script type=\"text/javascript\">alert('Sekarang loginnya tidak bisa di injeksi lho'); window.location = '../../page?p=masuk'</script>";
+						echo "<script type=\"text/javascript\">alert('Sekarang loginnya tidak bisa di injeksi lho'); window.location = '../../page.php?p=masuk'</script>";
 					}
 					else{
 						$query  = "SELECT * FROM users WHERE username='$username' AND password='$password' AND blokir='N'";
@@ -52,12 +52,12 @@
 								header("location:../../administrator/media.php?module=beranda");
 							}
 							elseif ($r['level'] == 'user') {
-								header('location:../../page?p=form-permohonan-prakerin');
+								header('location:../../page.php?p=form-permohonan-prakerin');
 							}
 
 						}
 						else{
-							header('location:../../page?p=masuk&notif='.encode('username-password-salah'));
+							header('location:../../page.php?p=masuk&notif='.encode('username-password-salah'));
 						}
 					}
 
@@ -80,7 +80,7 @@
 
 				if ($cek > 0) {
 
-					header('location:../../page?p=masuk&notif='.encode('duplikat-akun'));
+					header('location:../../page.php?p=masuk&notif='.encode('duplikat-akun'));
 				
 				}
 				else{
@@ -97,7 +97,7 @@
 					$_SESSION['namalengkap'] = $r['nama_lengkap'];
 					$_SESSION['leveluser']   = $r['level'];
 
-					header('location:../../page?p=form-permohonan-prakerin');
+					header('location:../../page.php?p=form-permohonan-prakerin');
 
 				}
 
@@ -110,13 +110,13 @@
 
 				session_start();
 				$_SESSION['ALERT'] = 'KELUAR';
-				header('location:../../page?p=index');
+				header('location:../../page.php?p=index');
 
 
 			break;
 			
 			default:
-				header('location:../../page?p=masuk&notif='.encode('akses-tidak-diizinkan'));
+				header('location:../../page.php?p=masuk&notif='.encode('akses-tidak-diizinkan'));
 				
 				break;
 		}
